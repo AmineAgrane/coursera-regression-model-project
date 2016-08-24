@@ -23,5 +23,7 @@ Your report must be:
 ## Peer Grading
 
 The criteria that your classmates will use to evaluate and grade your work are shown below.
-1 - Each criteria is binary: (1 point = criteria met acceptably; 0 points = criteria not met acceptably)
+
+1 - Each criteria is binary: (1 point = criteria met acceptably; 0 points = criteria not met acceptably).
+
 2 - Your Course Project score will be the sum of the points and will count as 40% of your final grade in the course.
