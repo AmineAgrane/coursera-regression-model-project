@@ -2,7 +2,7 @@
 title: "Coursera Regression Models Project"
 author: "Jose Antonio (joseantonio@me.com)"
 date: "28 ago 2016"
-output: html_document
+output: word_document
 ---
 Motor Trend: Vehicle Fuel Consumption
 =====================================
@@ -26,7 +26,8 @@ In particularly we want answer two questions:
 
 ## 2-Describing the Data
 The data of this project are extracted from the 1974 Motor Trend US magazine, and comprises fuel consumption and 10 aspects of automobile design and performance for 32 automobiles (1973/74 models).
-The data frame consists of 32 observations on 11 variables.
+
+The data consists of 32 observations on 11 variables.
 
 - **mpg**:	 Miles/(US) gallon
 - **cyl**:	 Number of cylinders
@@ -51,10 +52,8 @@ data(mtcars)
 
 Lets coerce the "cyl", "vs", "gear", "carb" and "am" variables into factor variables:
 ```{r, echo=TRUE}
-mtcars$cyl <- as.factor(mtcars$cyl)
-mtcars$vs <- as.factor(mtcars$vs)
-mtcars$gear <- as.factor(mtcars$gear)
-mtcars$carb <- as.factor(mtcars$carb)
+mtcars$cyl <- as.factor(mtcars$cyl); mtcars$vs <- as.factor(mtcars$vs)
+mtcars$gear <- as.factor(mtcars$gear); mtcars$carb <- as.factor(mtcars$carb)
 mtcars$am <- as.factor(mtcars$am)
 ```
 
@@ -89,9 +88,7 @@ Lets plot MPG with other variables to identify correlations (GRAPHIC FIGURE 2 AT
 ```
 
 The graph shows that MPG has correlations with other variables than just `am`. 
-
 To obtain a more accurate model, we need predicting MPG in correlation with other variables than `am`. 
-
 Lets use some models to evaluate the correlations. 
 
 ## 6-Models of Regression Analysis
@@ -115,7 +112,7 @@ fitall <- lm(mpg ~ ., mtcars)
 summary(fitall)
 ```
 
-Reading data from Summary, there is no coefficient significant at 0.05 level and R-Squared value is not able to describe the remaining variance of the MPG variable. 
+Reading data, there is no coefficient significant at 0.05 level. R-Squared value has improved, but is not able to describe the remaining variance of the MPG variable and  p-value show any significance anymore. We have to meet somewhete in the middle.
 
 Lets use the R function STEP to do the variable selection.
 
@@ -138,6 +135,7 @@ lastModel <- lm(mpg ~ wt + qsec + am, data = mtcars)
 summary(lastModel)$coef
 ```
 
+
 ### (e) Residual Analisys
 
 The resulting final model examination is dependant on the transmission (am), but also weight (wt) and 1/4 mile time (qsec). All have significant p-values and the R-squared is pretty good to (0.85)
@@ -145,11 +143,9 @@ The resulting final model examination is dependant on the transmission (am), but
 Now let's look (amongst others) at the Residuals vs Fitted (GRAPHIC FIGURE 3 AT APPENDIX).
 
 ```{r}
-# PLEASE, REFERS TO GRAPPHIC FIGURE 3 AT APPENDIX
+# PLEASE, REFERS TO GRAPHIC FIGURE 3 AT APPENDIX
 ```
-The Normal Q-Q plot (GRAPHIC FIGURE 3 AT APPENDIX) show that residuals are normally distributed (points close to line). Scale-Location plot shows a constant variance due to a constant band pattern.
-
-Residuals and Leverage shows that most of the points are contained in the 0.5 bands.
+The Normal Q-Q plot (GRAPHIC FIGURE 3 AT APPENDIX) show that residuals are normally distributed (points close to line). Scale-Location plot shows a constant variance due to a constant band pattern. Residuals and Leverage shows that most of the points are contained in the 0.5 bands
 
 ## 7 - CONCLUSION
 

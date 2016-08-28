@@ -137,7 +137,8 @@ $(document).ready(function () {
 </div>
 <div id="describing-the-data" class="section level2">
 <h2>2-Describing the Data</h2>
-<p>The data of this project are extracted from the 1974 Motor Trend US magazine, and comprises fuel consumption and 10 aspects of automobile design and performance for 32 automobiles (1973/74 models). The data frame consists of 32 observations on 11 variables.</p>
+<p>The data of this project are extracted from the 1974 Motor Trend US magazine, and comprises fuel consumption and 10 aspects of automobile design and performance for 32 automobiles (1973/74 models).</p>
+<p>The data consists of 32 observations on 11 variables.</p>
 <ul>
 <li><strong>mpg</strong>: Miles/(US) gallon</li>
 <li><strong>cyl</strong>: Number of cylinders</li>
@@ -160,10 +161,8 @@ data(mtcars)</code></pre>
 <div id="factor-data-wrangling" class="section level2">
 <h2>4-Factor Data (wrangling)</h2>
 <p>Lets coerce the “cyl”, “vs”, “gear”, “carb” and “am” variables into factor variables:</p>
-<pre class="r"><code>mtcars$cyl &lt;- as.factor(mtcars$cyl)
-mtcars$vs &lt;- as.factor(mtcars$vs)
-mtcars$gear &lt;- as.factor(mtcars$gear)
-mtcars$carb &lt;- as.factor(mtcars$carb)
+<pre class="r"><code>mtcars$cyl &lt;- as.factor(mtcars$cyl); mtcars$vs &lt;- as.factor(mtcars$vs)
+mtcars$gear &lt;- as.factor(mtcars$gear); mtcars$carb &lt;- as.factor(mtcars$carb)
 mtcars$am &lt;- as.factor(mtcars$am)</code></pre>
 <p>To better understanding will resume am levels to “Auto” and “Manual”</p>
 <pre class="r"><code>levels(mtcars$am) &lt;- c(&quot;Auto&quot;, &quot;Manual&quot;)</code></pre>
@@ -200,9 +199,7 @@ mtcars$am &lt;- as.factor(mtcars$am)</code></pre>
 <p>The plot show that manual transmissions have higher MPG’s, but may have other variables that can play other role in determination of MPG, as <code>cyl</code>, <code>disp</code>, <code>hp</code>, <code>wt</code> and others. For example, it is common sense that the heavier the car, more likely he will fuel consumption.</p>
 <p>Lets plot MPG with other variables to identify correlations (GRAPHIC FIGURE 2 AT APPENDIX)</p>
 <pre class="r"><code>## PLEASE, REFERS TO GRAPHIC FIGURE 2 AT APPENDIX</code></pre>
-<p>The graph shows that MPG has correlations with other variables than just <code>am</code>.</p>
-<p>To obtain a more accurate model, we need predicting MPG in correlation with other variables than <code>am</code>.</p>
-<p>Lets use some models to evaluate the correlations.</p>
+<p>The graph shows that MPG has correlations with other variables than just <code>am</code>. To obtain a more accurate model, we need predicting MPG in correlation with other variables than <code>am</code>. Lets use some models to evaluate the correlations.</p>
 </div>
 <div id="models-of-regression-analysis" class="section level2">
 <h2>6-Models of Regression Analysis</h2>
@@ -267,7 +264,7 @@ summary(fitall)</code></pre>
 ## Residual standard error: 2.833 on 15 degrees of freedom
 ## Multiple R-squared:  0.8931, Adjusted R-squared:  0.779 
 ## F-statistic:  7.83 on 16 and 15 DF,  p-value: 0.000124</code></pre>
-<p>Reading data from Summary, there is no coefficient significant at 0.05 level and R-Squared value is not able to describe the remaining variance of the MPG variable.</p>
+<p>Reading data, there is no coefficient significant at 0.05 level. R-Squared value has improved, but is not able to describe the remaining variance of the MPG variable and p-value show any significance anymore. We have to meet somewhete in the middle.</p>
 <p>Lets use the R function STEP to do the variable selection.</p>
 </div>
 <div id="b-step-function" class="section level3">
@@ -313,9 +310,8 @@ summary(lastModel)$coef</code></pre>
 <h3>(e) Residual Analisys</h3>
 <p>The resulting final model examination is dependant on the transmission (am), but also weight (wt) and 1/4 mile time (qsec). All have significant p-values and the R-squared is pretty good to (0.85)</p>
 <p>Now let’s look (amongst others) at the Residuals vs Fitted (GRAPHIC FIGURE 3 AT APPENDIX).</p>
-<pre class="r"><code># PLEASE, REFERS TO GRAPPHIC FIGURE 3 AT APPENDIX</code></pre>
-<p>The Normal Q-Q plot (GRAPHIC FIGURE 3 AT APPENDIX) show that residuals are normally distributed (points close to line). Scale-Location plot shows a constant variance due to a constant band pattern.</p>
-<p>Residuals and Leverage shows that most of the points are contained in the 0.5 bands.</p>
+<pre class="r"><code># PLEASE, REFERS TO GRAPHIC FIGURE 3 AT APPENDIX</code></pre>
+<p>The Normal Q-Q plot (GRAPHIC FIGURE 3 AT APPENDIX) show that residuals are normally distributed (points close to line). Scale-Location plot shows a constant variance due to a constant band pattern. Residuals and Leverage shows that most of the points are contained in the 0.5 bands</p>
 </div>
 </div>
 <div id="conclusion" class="section level2">
