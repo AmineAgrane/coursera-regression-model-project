@@ -151,7 +151,7 @@ The Normal Q-Q plot (GRAPHIC FIGURE 3 AT APPENDIX) show that residuals are norma
 
 All modes show that manual transmission will increase MPG, and this answer the first question (Is an automatic or manual transmission better for MPG?). Based on var lastModel using `mpg ~ wt + qsec + am` it is possible to conclude that manual transmission have more miles per gallon than automatic transmissions. With a `p < 0.05` confidence cars with manual transmission have near 3 more miles per gallon than automatic transmissions.
 
-If we have more observations available, with same cars model, using manual and automatic transmission, could help us better answer the second question about (Quantify the MPG difference between automatica and manual transmissions?). With 32 observations it was not confidence conclude that this model fit all future observations.
+If we have more observations available, with same cars model, using manual and automatic transmission, could help us better answer the second question about: Quantify the MPG difference between automatica and manual transmissions? The database with only 32 observations may not have been enough to answer more clearly the second question.
 
 # APPENDIX - GRAPHICS
 
